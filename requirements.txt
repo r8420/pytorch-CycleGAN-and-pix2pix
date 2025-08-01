@@ -1,0 +1,3 @@
+kornia>=0.7.0
+opencv-python
+scikit-image

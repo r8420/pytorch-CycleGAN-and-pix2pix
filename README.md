@@ -301,3 +301,9 @@ If you love cats, and love reading cool graphics, vision, and learning papers, p
 ## Acknowledgments
 
 Our code is inspired by [pytorch-DCGAN](https://github.com/pytorch/examples/tree/master/dcgan).
+This repo includes an implementation of PaletteGAN for grayscale to color image colorization with spectral normalization on all networks.
+Extra flags of interest include `--z_dim` to sample latent channels, `--ca_window`/`--ca_down` to control Chromatic Attention, `--mix_threshold` for curriculum mixing, and `--separate_te_opt` to train TE separately. Test-time options `--ref_image` or `--ref_dir` provide reference palettes.
+`--te_act` chooses the TE activation (`sigmoid` renormalized or `softmax`).
+See `scripts/train_palettegan.sh` for training and `scripts/test_palettegan.sh` for testing.
+To obtain multiple stochastic outputs when `--z_dim > 0`, run the test script several times with different `--random_seed` values.
+When `--separate_te_opt` is enabled, the palette and semantic features passed into the generator are fully detached to isolate gradients (no flow from G into TE); at test time, `--ref_image`/`--ref_dir` bypass TE by using the reference palette.

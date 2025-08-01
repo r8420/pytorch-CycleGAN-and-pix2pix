@@ -20,6 +20,7 @@ See our template model class 'template_model.py' for more details.
 
 import importlib
 from models.base_model import BaseModel
+from .palette_gan_model import PaletteGANModel
 
 
 def find_model_using_name(model_name: str):
