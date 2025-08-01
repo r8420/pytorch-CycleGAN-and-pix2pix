@@ -13,6 +13,7 @@ See our template dataset class 'template_dataset.py' for more details.
 import importlib
 import torch.utils.data
 from data.base_dataset import BaseDataset
+from .colorization_palette_dataset import ColorizationPaletteDataset
 
 
 def find_dataset_using_name(dataset_name):
